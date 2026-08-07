@@ -6,11 +6,6 @@ import {
   shouldShowBiometricLoginButton,
 } from "./index";
 
-/**
- * Reemplaza window.PublicKeyCredential por un mock controlable en cada test.
- * happy-dom no implementa WebAuthn de forma nativa, así que lo simulamos
- * por completo para poder probar los distintos escenarios.
- */
 function mockPublicKeyCredential(overrides: {
   isUserVerifyingPlatformAuthenticatorAvailable?: () => Promise<boolean>;
   isConditionalMediationAvailable?: () => Promise<boolean>;
