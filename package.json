@@ -1,6 +1,6 @@
 {
   "name": "is-web-biometrics-supported",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Tiny zero-dependency helper to know whether to show or hide a biometric login button (Face ID / Touch ID / Windows Hello) in the browser, using the native WebAuthn API.",
   "type": "module",
   "main": "./dist/index.cjs",
