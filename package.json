@@ -1,0 +1,60 @@
+{
+  "name": "is-web-biometrics-supported",
+  "version": "1.0.0",
+  "description": "Tiny zero-dependency helper to know whether to show or hide a biometric login button (Face ID / Touch ID / Windows Hello) in the browser, using the native WebAuthn API.",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "unpkg": "./dist/index.global.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup && tsc --emitDeclarationOnly --declaration --outDir dist",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run build && npm run test"
+  },
+  "keywords": [
+    "webauthn",
+    "biometrics",
+    "faceid",
+    "touchid",
+    "passkey",
+    "windows-hello",
+    "web-authentication",
+    "typescript",
+    "zero-dependency"
+  ],
+  "author": "Luis Cordoba (https://github.com/cordobaluis)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cordobaluis/is-web-biometrics-supported.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cordobaluis/is-web-biometrics-supported/issues"
+  },
+  "homepage": "https://github.com/cordobaluis/is-web-biometrics-supported#readme",
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "vitest": "^2.1.8",
+    "happy-dom": "^15.11.7"
+  }
+}
