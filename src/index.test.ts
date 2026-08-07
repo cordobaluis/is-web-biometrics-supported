@@ -15,17 +15,14 @@ function mockPublicKeyCredential(overrides: {
   isUserVerifyingPlatformAuthenticatorAvailable?: () => Promise<boolean>;
   isConditionalMediationAvailable?: () => Promise<boolean>;
 } = {}) {
-  // @ts-expect-error -- sobreescritura intencional para pruebas
-  window.PublicKeyCredential = function PublicKeyCredential() {};
+  window.PublicKeyCredential = function PublicKeyCredential() {} as unknown as typeof PublicKeyCredential;
 
   if (overrides.isUserVerifyingPlatformAuthenticatorAvailable) {
-    // @ts-expect-error -- asignación de método estático simulado
     window.PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable =
       overrides.isUserVerifyingPlatformAuthenticatorAvailable;
   }
 
   if (overrides.isConditionalMediationAvailable) {
-    // @ts-expect-error -- asignación de método estático simulado
     window.PublicKeyCredential.isConditionalMediationAvailable =
       overrides.isConditionalMediationAvailable;
   }
@@ -42,7 +39,7 @@ beforeEach(() => {
   clearBiometricSupportCache();
   vi.restoreAllMocks();
   vi.useRealTimers();
-  // @ts-expect-error -- limpieza entre tests
+  // @ts-expect-error -- limpieza entre tests, borrar propiedad de window es intencional
   delete window.PublicKeyCredential;
   setSecureContext(true);
 });
